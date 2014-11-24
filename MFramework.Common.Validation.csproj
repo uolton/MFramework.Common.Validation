@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C6CCE22-A16E-4F9E-AF79-34E3D80CE317}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MFramework.Common.Validation</RootNamespace>
+    <AssemblyName>MFramework.Common.Validation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Components.Validator">
+      <HintPath>..\..\packages\Castle.Components.Validator.2.5.0\lib\NET40\Castle.Components.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="Fasterflect, Version=2.1.3.0, Culture=neutral, PublicKeyToken=38d18473284c1ca7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\fasterflect.2.1.3\lib\net40\Fasterflect.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\packages\FluentValidation.5.3.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>..\..\packages\JetBrains.Annotations.Redist.7.1\lib\net40\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Action\ValidateActionCustom.cs" />
+    <Compile Include="Castle\ValidateFailureCastle.cs" />
+    <Compile Include="Castle\ValidateResultCastle.cs" />
+    <Compile Include="Castle\ValidatorCastle.cs" />
+    <Compile Include="Composite\ValidateResultComposite.cs" />
+    <Compile Include="Composite\ValidatorComposite.cs" />
+    <Compile Include="DataAnnotations\DataAnnotationValildationContext.cs" />
+    <Compile Include="DataAnnotations\ValidateFailureDataAnnotation.cs" />
+    <Compile Include="DataAnnotations\ValidateResultDataAnnotation.cs" />
+    <Compile Include="DataAnnotations\ValidatorDataAnnotation.cs" />
+    <Compile Include="Extending\Castle\CachedMetadataValidationRegistry.cs" />
+    <Compile Include="MFrameworkValidatorBase.cs" />
+    <Compile Include="Fluent\ValidateFailureFluent.cs" />
+    <Compile Include="Fluent\ValidateResultFluent.cs" />
+    <Compile Include="Fluent\ValidatorFluent.cs" />
+    <Compile Include="IValidatable.cs" />
+    <Compile Include="IValidateAction.cs" />
+    <Compile Include="IValidateFailure.cs" />
+    <Compile Include="IValidateResult.cs" />
+    <Compile Include="IValidator.cs" />
+    <Compile Include="NoErrorValidationResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidatableObjectBase.cs" />
+    <Compile Include="ValidatorBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFramework.Common.Core\MFramework.Common.Core.csproj">
+      <Project>{cf36d7c6-91cd-4e7c-a550-328e4de85d9c}</Project>
+      <Name>MFramework.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFramework.Common\MFramework.Common.csproj">
+      <Project>{8e2d5264-6256-4d88-81e3-392d19400ca0}</Project>
+      <Name>MFramework.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
